@@ -3,7 +3,7 @@ import "./App.css";
 function App() {
   const skills = {
     programming: ["JavaScript", "PHP", "Python", "C++", "Java"],
-    web: ["HTML", "CSS", "React (familiar)", "Tailwind CSS", "Node.js", "Express.js"],
+    web: ["HTML", "CSS", "React", "Tailwind CSS", "Node.js", "Express.js"],
     tools: ["MariaDB", "MySQL", "Git", "GitHub", "VS Code"],
   };
 
