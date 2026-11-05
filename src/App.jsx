@@ -1,395 +1,295 @@
+import "./App.css";
+
 function App() {
+  const skills = {
+    programming: ["JavaScript", "PHP", "Python", "C++", "Java"],
+    web: ["HTML", "CSS", "React (familiar)", "Tailwind CSS", "Node.js", "Express.js"],
+    tools: ["MariaDB", "MySQL", "Git", "GitHub", "VS Code"],
+  };
+
+  const projects = [
+    {
+      title: "Community Savings & Micro-Loan Management System",
+      description:
+        "A database-backed system for managing community contributions, fund allocations, micro-loans, and administrative approvals. Developed as a Final Year Project.",
+      stack: "PHP · MySQL · JavaScript · Chart.js",
+      note: "FYP co-author: Umair Makhan",
+      url: "https://github.com/farazkhanpasha/smart-community-savings-loans",
+    },
+    {
+      title: "Todo REST API",
+      description:
+        "An authenticated, multi-user REST API. Users register and log in with bcrypt-hashed passwords and one-hour JWTs, then manage their own tasks through CRUD endpoints. Includes per-user access checks and parameterised database queries.",
+      stack: "Node.js · Express · MariaDB · JWT · bcrypt",
+      url: "https://github.com/farazkhanpasha/todo-api",
+    },
+    {
+      title: "Village Fund Management Chatbot",
+      description:
+        "A chatbot that answers frequently asked questions about village fund management, using fuzzy text matching with RapidFuzz and a Flask backend.",
+      stack: "Python · Flask · RapidFuzz · JavaScript",
+      url: "https://github.com/farazkhanpasha/village-fund-management-chatbot",
+    },
+    {
+      title: "Bike Fuel Monitoring – Backend Prototype",
+      description:
+        "An early-stage backend prototype exploring data management for a motorcycle fuel-monitoring concept. Hardware integration and trip-management functionality are not yet complete.",
+      stack: "PHP · MySQL",
+      url: "https://github.com/farazkhanpasha/bike-fuel-monitor",
+    },
+  ];
+
+  const navLinks = [
+    ["Home", "#home"],
+    ["Projects", "#projects"],
+    ["About", "#about"],
+    ["Skills", "#skills"],
+    ["Education", "#education"],
+    ["Contact", "#contact"],
+  ];
+
   return (
-    <div className="min-h-screen bg-slate-950 text-white">
+    <div className="site-shell min-h-screen bg-slate-950 text-white selection:bg-blue-600 selection:text-white">
+      <nav className="site-nav sticky top-0 z-50 border-b border-slate-800/70 bg-slate-950/90 backdrop-blur">
+        <div className="site-nav-inner max-w-6xl mx-auto px-5 sm:px-8">
+          <a
+            href="#home"
+            className="site-brand text-xl font-bold hover:text-blue-400 transition"
+            aria-label="Muhammad Faraz Khan home"
+          >
+            Muhammad Faraz Khan<span className="text-blue-500">.</span>
+          </a>
 
-      {/* Navigation */}
-      <nav className="flex items-center justify-between px-8 py-6 max-w-6xl mx-auto">
-        <h2 className="text-xl font-bold">
-          Faraz<span className="text-blue-500">.</span>
-        </h2>
-
-      <div className="flex flex-wrap gap-6 text-sm text-slate-300">
-  <a href="#home" className="hover:text-blue-400">Home</a>
-  <a href="#projects" className="hover:text-blue-400">Projects</a>
-  <a href="#about" className="hover:text-blue-400">About</a>
-  <a href="#skills" className="hover:text-blue-400">Skills</a>
-  <a href="#education" className="hover:text-blue-400">Education</a>
-  <a href="#contact" className="hover:text-blue-400">Contact</a>
-</div>
+          <div className="site-nav-links text-sm text-slate-300">
+            {navLinks.map(([label, href]) => (
+              <a key={href} href={href} className="nav-link hover:text-blue-400 transition">
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
       </nav>
 
-      {/* Hero Section */}
-     <main
-  id="home"
-  className="max-w-6xl mx-auto px-8 py-24 flex flex-col-reverse md:flex-row items-center justify-between gap-16"
->
-  {/* Introduction */}
-  <div className="flex-1">
-    <p className="text-blue-400 font-medium mb-5">
-      Hello, I'm
-    </p>
-
-    <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-      Faraz Khan
-    </h1>
-
-    <h2 className="text-2xl md:text-3xl text-slate-400 mb-8">
-      Computer Science Student & Aspiring Developer
-    </h2>
-
-    <p className="text-slate-400 text-lg leading-relaxed max-w-2xl mb-10">
-      I build web applications and explore technologies
-      to solve practical problems. Currently focused on
-      JavaScript, React, Node.js, and backend development.
-    </p>
-
-    <div className="flex flex-wrap gap-4">
-      <a
-        href="#projects"
-        className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition"
+      <main
+        id="home"
+        className="hero-section max-w-6xl mx-auto px-5 sm:px-8 py-16 md:py-24 flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16"
       >
-        View My Projects
-      </a>
+        <div className="flex-1 min-w-0">
+          <p className="text-blue-400 font-medium mb-5">Hello, I&apos;m</p>
 
-      <a
-        href="#contact"
-        className="border border-slate-600 hover:border-blue-500 px-6 py-3 rounded-lg font-medium transition"
-      >
-        Contact Me
-      </a>
-      <a
-  href="/files/Faraz_Khan_CV.pdf"
-  download
-  className="inline-block border border-slate-700 text-white px-6 py-3 rounded-lg hover:bg-slate-800 transition"
->
-  Download CV
-</a>
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6">
+            Muhammad Faraz Khan
+          </h1>
 
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-slate-300 mb-5">
+            Computer Science Student &amp; Web Developer
+          </h2>
+
+          <p className="inline-block bg-blue-600/15 text-blue-300 border border-blue-500/30 px-3 py-2 rounded-full text-sm font-medium mb-8">
+            Open to internship &amp; junior roles · On-site / Remote
+          </p>
+
+          <p className="text-slate-400 text-lg leading-relaxed max-w-2xl mb-10">
+            I build web applications to solve practical problems. I am
+            developing my skills in JavaScript, Node.js, Express, and backend
+            development, while gaining familiarity with React through academic
+            and personal projects.
+          </p>
+
+          <div className="flex flex-wrap gap-4">
+            <a href="#projects" className="primary-button">
+              View My Projects
+            </a>
+            <a href="#contact" className="secondary-button">
+              Contact Me
+            </a>
+            <a href="/files/Faraz_Khan_CV.pdf" download className="secondary-button">
+              Download CV
+            </a>
+          </div>
+
+          <div className="flex flex-wrap gap-x-8 gap-y-5 mt-12 text-sm">
+            <div>
+              <p className="text-2xl font-bold text-white">4</p>
+              <p className="text-slate-500">Projects with code</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-white">Node.js · PHP</p>
+              <p className="text-slate-500">Backend technologies</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-white">BSCS</p>
+              <p className="text-slate-500">In progress</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex-1 flex justify-center">
+          <img
+            src="/images/profile.jpeg"
+            alt="Portrait of Muhammad Faraz Khan"
+            className="profile-image w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 object-cover rounded-full border-4 border-slate-800 shadow-xl"
+          />
+        </div>
+      </main>
+
+      <section id="projects" className="content-section max-w-6xl mx-auto px-5 sm:px-8 py-16 md:py-24">
+        <div className="mb-12">
+          <p className="section-kicker">MY WORK</p>
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="text-slate-400 max-w-2xl">
+            A selection of projects I&apos;ve worked on while learning and
+            building practical software solutions.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="project-card group bg-slate-900 border border-slate-800 rounded-xl p-6 sm:p-7"
+            >
+              <h3 className="text-xl font-bold mb-3 group-hover:text-blue-400 transition">
+                {project.title}
+              </h3>
+              <p className="text-slate-400 leading-relaxed mb-5">
+                {project.description}
+              </p>
+              <p className="text-blue-400 text-sm mb-3">{project.stack}</p>
+              {project.note && (
+                <p className="text-slate-500 text-sm mb-6">{project.note}</p>
+              )}
+              {!project.note && <div className="mb-6" />}
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-white hover:text-blue-400 font-medium transition"
+              >
+                View on GitHub <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="content-section max-w-6xl mx-auto px-5 sm:px-8 py-16 md:py-24">
+        <p className="section-kicker">ABOUT ME</p>
+        <h2 className="section-title">A Little About Me</h2>
+
+        <div className="max-w-3xl">
+          <p className="text-slate-400 text-lg leading-relaxed mb-6">
+            I&apos;m a Computer Science student at the University of Poonch,
+            Rawalakot. I began my degree in October 2022, and it has introduced
+            me to programming, databases, web technologies, and software
+            engineering.
+          </p>
+
+          <p className="text-slate-400 text-lg leading-relaxed mb-6">
+            I&apos;m strengthening my foundations in JavaScript, Node.js,
+            Express, and backend development. I also have familiarity with
+            React and continue to build practical experience through academic
+            and personal projects.
+          </p>
+
+          <p className="text-slate-400 text-lg leading-relaxed">
+            I&apos;m looking for an internship or junior role where I can
+            contribute to real codebases, receive code reviews, and continue
+            developing my software engineering skills.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills" className="content-section max-w-6xl mx-auto px-5 sm:px-8 py-16 md:py-24">
+        <p className="section-kicker">MY TOOLKIT</p>
+        <h2 className="section-title">Skills &amp; Technologies</h2>
+        <p className="text-slate-500 mb-10 max-w-2xl">
+  Technologies and tools I have used across my academic and personal projects.
+</p>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            ["Programming", skills.programming],
+            ["Web Development", skills.web],
+            ["Tools & Database", skills.tools],
+          ].map(([heading, items]) => (
+            <div
+              key={heading}
+              className="skill-card bg-slate-900 border border-slate-800 rounded-xl p-6"
+            >
+              <h3 className="text-xl font-semibold mb-5">{heading}</h3>
+              <div className="flex flex-wrap gap-2">
+                {items.map((skill) => (
+                  <span
+                    key={skill}
+                    className="bg-slate-800 text-slate-300 px-3 py-2 rounded-md text-sm"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="education" className="content-section max-w-6xl mx-auto px-5 sm:px-8 py-16 md:py-24">
+        <p className="section-kicker">MY BACKGROUND</p>
+        <h2 className="section-title">Education</h2>
+
+        <div className="education-card max-w-3xl bg-slate-900 border border-slate-800 rounded-xl p-6 sm:p-7">
+          <h3 className="text-xl font-bold mb-2">
+            Bachelor of Science in Computer Science
+          </h3>
+          <p className="text-slate-300 mb-2">University of Poonch, Rawalakot</p>
+          <p className="text-slate-500 text-sm">
+            October 2022 – Present · BSCS in progress
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" className="content-section max-w-6xl mx-auto px-5 sm:px-8 py-16 md:py-24">
+        <p className="section-kicker">GET IN TOUCH</p>
+        <h2 className="section-title">Let&apos;s Connect</h2>
+        <p className="text-slate-400 text-lg max-w-2xl mb-10">
+          I&apos;m interested in internship and junior developer opportunities,
+          collaboration, and connecting with people working in software
+          development.
+        </p>
+
+        <div className="flex flex-wrap gap-4">
+          <a href="mailto:farazzubair098@gmail.com" className="primary-button">
+            Email Me
+          </a>
+          <a
+            href="https://github.com/farazkhanpasha"
+            target="_blank"
+            rel="noreferrer"
+            className="secondary-button"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/muhammad-faraz-khan-pasha/"
+            target="_blank"
+            rel="noreferrer"
+            className="secondary-button"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <footer className="border-t border-slate-800 mt-12">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-center sm:text-left">
+          <p className="text-slate-500 text-sm">
+            © {new Date().getFullYear()} Muhammad Faraz Khan. All rights reserved.
+          </p>
+          <p className="text-slate-500 text-sm">Built with React &amp; Tailwind CSS</p>
+        </div>
+      </footer>
     </div>
-  </div>
-
-  {/* Profile Image */}
-  <div className="flex-1 flex justify-center">
-    <img
-      src="/images/profile.jpeg"
-      alt="Faraz Khan"
-      className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-slate-800 shadow-xl"
-    />
-  </div>
-</main>
-{/* Projects Section */}
-<section id="projects" className="max-w-6xl mx-auto px-8 py-24">
-
-  <div className="mb-12">
-    <p className="text-blue-400 font-medium mb-3">MY WORK</p>
-
-    <h2 className="text-4xl font-bold mb-4">
-      Featured Projects
-    </h2>
-
-    <p className="text-slate-400 max-w-2xl">
-      A selection of projects I've worked on while learning
-      and building practical software solutions.
-    </p>
-  </div>
-
-  <div className="grid md:grid-cols-2 gap-8">
-
-    {/* Project 1 */}
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-7">
-      <img
-  src="/images/project-1.png"
-  alt="Community Savings System preview"
-  className="w-full h-48 object-cover rounded-lg mb-5"
-/>
-      <h3 className="text-xl font-bold mb-3">
-        Community Savings & Micro-Loan Management System
-      </h3>
-
-      <p className="text-slate-400 leading-relaxed mb-5">
-        A web-based system designed to manage community
-        contributions, fund allocation, and micro-loan workflows.
-      </p>
-
-      <p className="text-blue-400 text-sm mb-6">
-        PHP · MySQL · JavaScript
-      </p>
-
-      <a
-        href="https://github.com/farazkhanpasha/smart-community-savings-loans"
-        target="_blank"
-        rel="noreferrer"
-        className="text-white hover:text-blue-400 font-medium"
-      >
-        View on GitHub →
-      </a>
-    </div>
-
-    {/* Project 2 */}
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-7">
-      <img
-  src="/images/project-2.jpg"
-  alt="Community Savings System preview"
-  className="w-full h-48 object-cover rounded-lg mb-5"
-/>
-      <h3 className="text-xl font-bold mb-3">
-        Todo REST API
-      </h3>
-
-      <p className="text-slate-400 leading-relaxed mb-5">
-        A REST API with user registration, login,
-        JWT authentication, and task management.
-      </p>
-
-      <p className="text-blue-400 text-sm mb-6">
-        Node.js · Express · MariaDB · JWT
-      </p>
-
-      <a
-        href="https://github.com/farazkhanpasha/todo-api"
-        target="_blank"
-        rel="noreferrer"
-        className="text-white hover:text-blue-400 font-medium"
-      >
-        View on GitHub →
-      </a>
-    </div>
-
-    {/* Project 3 */}
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-7">
-      <img
-  src="/images/project-3.jpg"
-  alt="Community Savings System preview"
-  className="w-full h-48 object-cover rounded-lg mb-5"
-/>
-      <h3 className="text-xl font-bold mb-3">
-        Village Fund Management Chatbot
-      </h3>
-
-      <p className="text-slate-400 leading-relaxed mb-5">
-        A chatbot that answers frequently asked questions
-        using fuzzy text matching.
-      </p>
-
-      <p className="text-blue-400 text-sm mb-6">
-        Python · Flask · RapidFuzz · JavaScript
-      </p>
-
-      <a
-        href="https://github.com/farazkhanpasha/chatbot-for-villagef-fund-managment-web-usage"
-        target="_blank"
-        rel="noreferrer"
-        className="text-white hover:text-blue-400 font-medium"
-      >
-        View on GitHub →
-      </a>
-    </div>
-
-    {/* Project 4 */}
-   <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-blue-500 transition">
-    <img
-  src="/images/project-4.jpg"
-  alt="Community Savings System preview"
-  className="w-full h-48 object-cover rounded-lg mb-5"
-/>
-  <h3 className="text-xl font-semibold mb-3">
-    Bike Fuel Monitoring & Trip Management System
-  </h3>
-
-  <p className="text-slate-400 mb-5">
-    An IoT-based project using NodeMCU ESP8266 to monitor motorcycle fuel
-    levels and support trip management through sensor data and Wi-Fi
-    connectivity.
-  </p>
-
-  <div className="flex flex-wrap gap-2 mb-5">
-    {["IoT", "NodeMCU ESP8266", "Embedded Systems", "Wi-Fi"].map((skill) => (
-      <span
-        key={skill}
-        className="text-xs bg-slate-800 text-blue-300 px-3 py-1 rounded-full"
-      >
-        {skill}
-      </span>
-    ))}
-  </div>
-
-  <a
-    href="https://github.com/farazkhanpasha/bike-fuel-monitor"
-   target="_blank"
-        rel="noreferrer"
-        className="text-white hover:text-blue-400 font-medium"
-  >
-    View on GitHub →
-  </a>
-</div>
-  </div>
-</section>
-{/* About Section */}
-<section id="about" className="max-w-6xl mx-auto px-8 py-24">
-
-  <p className="text-blue-400 font-medium mb-3">
-    ABOUT ME
-  </p>
-
-  <h2 className="text-4xl font-bold mb-8">
-    A Little About Me
-  </h2>
-
-  <div className="max-w-3xl">
-    <p className="text-slate-400 text-lg leading-relaxed mb-6">
-      I'm a Computer Science student interested in software
-      development and building practical applications. My
-      academic journey has introduced me to programming,
-      databases, web technologies, and software engineering.
-    </p>
-
-    <p className="text-slate-400 text-lg leading-relaxed">
-      Currently, I'm strengthening my skills in JavaScript,
-      React, Node.js, and backend development while working
-      on academic and personal projects.
-    </p>
-  </div>
-
-</section>
-{/* Skills Section */}
-<section id="skills" className="max-w-6xl mx-auto px-8 py-24">
-
-  <p className="text-blue-400 font-medium mb-3">
-    MY TOOLKIT
-  </p>
-
-  <h2 className="text-4xl font-bold mb-12">
-    Skills & Technologies
-  </h2>
-
-  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-      <h3 className="text-xl font-semibold mb-5">Programming</h3>
-      <div className="flex flex-wrap gap-2">
-        {['JavaScript', 'PHP', 'Python', 'C++', 'Java'].map(skill => (
-          <span key={skill} className="bg-slate-800 text-slate-300 px-3 py-2 rounded-md text-sm">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-      <h3 className="text-xl font-semibold mb-5">Web Development</h3>
-      <div className="flex flex-wrap gap-2">
-        {['HTML', 'CSS', 'React', 'Tailwind CSS', 'Node.js', 'Express.js'].map(skill => (
-          <span key={skill} className="bg-slate-800 text-slate-300 px-3 py-2 rounded-md text-sm">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-
-    <div className="bg-slate-900 border border-slate-800 rounded-xl p-6">
-      <h3 className="text-xl font-semibold mb-5">Tools & Database</h3>
-      <div className="flex flex-wrap gap-2">
-        {['MySQL', 'MariaDB', 'Git', 'GitHub', 'VS Code'].map(skill => (
-          <span key={skill} className="bg-slate-800 text-slate-300 px-3 py-2 rounded-md text-sm">
-            {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-
-  </div>
-</section>
-{/* Education Section */}
-<section id="education" className="max-w-6xl mx-auto px-8 py-24">
-
-  <p className="text-blue-400 font-medium mb-3">
-    MY BACKGROUND
-  </p>
-
-  <h2 className="text-4xl font-bold mb-10">
-    Education
-  </h2>
-
-  <div className="max-w-3xl bg-slate-900 border border-slate-800 rounded-xl p-7">
-    <h3 className="text-xl font-bold mb-2">
-      Bachelor of Science in Computer Science
-    </h3>
-
-    <p className="text-slate-300 mb-2">
-      University of Poonch, Rawalakot
-    </p>
-
-    <p className="text-slate-500 text-sm">
-      Currently pursuing · Expected graduation: To be updated
-    </p>
-  </div>
-
-</section>
-{/* Contact Section */}
-<section id="contact" className="max-w-6xl mx-auto px-8 py-24">
-
-  <p className="text-blue-400 font-medium mb-3">
-    GET IN TOUCH
-  </p>
-
-  <h2 className="text-4xl font-bold mb-6">
-    Let's Connect
-  </h2>
-
-  <p className="text-slate-400 text-lg max-w-2xl mb-10">
-    I'm interested in internship opportunities, collaboration,
-    and connecting with people working in software development.
-  </p>
-
-  <div className="flex flex-wrap gap-5">
-
-    <a
-      href="mailto:farazzubair098@gmail.com"
-      className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition"
-    >
-      Email Me
-    </a>
-
-    <a
-      href="https://github.com/farazkhanpasha"
-      target="_blank"
-      rel="noreferrer"
-      className="border border-slate-600 hover:border-blue-500 px-6 py-3 rounded-lg transition"
-    >
-      GitHub
-    </a>
-
-    <a
-      href="https://www.linkedin.com/in/muhammad-faraz-khan-pasha/"
-      target="_blank"
-      rel="noreferrer"
-      className="border border-slate-600 hover:border-blue-500 px-6 py-3 rounded-lg transition"
-    >
-      LinkedIn
-    </a>
-
-  </div>
-
-</section>
-
-{/* Footer */}
-<footer className="border-t border-slate-800 mt-16">
-
-  <div className="max-w-6xl mx-auto px-8 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-
-    <p className="text-slate-500 text-sm">
-      © {new Date().getFullYear()} Faraz Khan. All rights reserved.
-    </p>
-
-    <p className="text-slate-500 text-sm">
-      Built with React & Tailwind CSS
-    </p>
-
-  </div>
-
-</footer>
-    </div>
-  )
+  );
 }
 
-export default App
+export default App;
